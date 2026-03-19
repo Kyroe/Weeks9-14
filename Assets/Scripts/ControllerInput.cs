@@ -18,6 +18,7 @@ public class ControllerInput : MonoBehaviour
         Camera.main.ScreenToWorldPoint(target);
         transform.eulerAngles = look;
         look.z = target.x;
+        Debug.Log(target);
     }
     public void OnLook(InputAction.CallbackContext context)
     {
