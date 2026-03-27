@@ -6,6 +6,9 @@ public class line : MonoBehaviour
 {
     LineRenderer lineRen;
     Vector3 playerTrans;
+    public float progress = 0;
+    bool isMoving;
+    Coroutine move;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,6 +20,10 @@ public class line : MonoBehaviour
     void Update()
     {
       transform.position = playerTrans;
+        //if (isMoving == false )
+        //{
+        //    StopCoroutine(Mover());
+        //}
     }
 
     public void Looky(InputAction.CallbackContext context)
@@ -29,21 +36,46 @@ public class line : MonoBehaviour
         lineRen.SetPosition(1, worldMousePosition);
     }
 
-    public void OnMove()
+    public void OnMove(InputAction.CallbackContext context)
     {
-        StartCoroutine(Mover());
+        Debug.Log("TEst["+context.phase+"]");
+
+        if(context.phase == InputActionPhase.Performed)
+        {
+            move = StartCoroutine(Mover());
+
+        }
+        
         //when lerp is in action, set bool true, when bool is false, stop coroutine
     }
 
     public IEnumerator Mover()
     {
-        float progress;
+        progress = 0;
         bool isMoving = true;
-
-        while(isMoving)
+        float duration = 2;
+        
+        Vector2 worldMousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        if(move  != null)
         {
-            progress += Time.deltaTime;
+            yield return move;
         }
+        while (progress < duration)
+        {
+
+            progress += Time.deltaTime;
+            playerTrans = Vector2.Lerp(playerTrans, worldMousePosition, progress / duration);
+            yield return null;
+        }
+
+        
+
+        //if (progress > Time.deltaTime)
+        //{
+        //    isMoving = false;
+        //}
+
+
         //have one click start lerp 
     }
 }
