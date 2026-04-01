@@ -9,7 +9,8 @@ public class Buttons : MonoBehaviour
     public Vector2 startPos;
     public Vector2 endPos;
     public float duration;
-    private Coroutine button;
+    public Coroutine button;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,10 +23,9 @@ public class Buttons : MonoBehaviour
         
     }
 
-    public void OnE(InputAction.CallbackContext context)
+    public void StopButton()
     {
-       
-        if (context.phase ==InputActionPhase.Started && button != null)
+        if (button != null)
         {
             StopCoroutine(button);
         }
@@ -33,11 +33,6 @@ public class Buttons : MonoBehaviour
 
     public void OnButton ()
     {
-        //if (button != null)
-        //{
-        //    StopCoroutine(button);
-        //}
-
         button = StartCoroutine(MovePlayer());
     }
 
@@ -46,8 +41,6 @@ public class Buttons : MonoBehaviour
         float progress = 0;
         float timer = 0;
         PlayerMove mPlayer = player.GetComponent<PlayerMove>();
-
-        
 
         while (timer < duration)
         {
