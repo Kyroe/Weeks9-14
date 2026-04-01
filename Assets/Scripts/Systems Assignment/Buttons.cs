@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Buttons : MonoBehaviour
 {
@@ -21,12 +22,21 @@ public class Buttons : MonoBehaviour
         
     }
 
-    public void OnGreen ()
+    public void OnE(InputAction.CallbackContext context)
     {
-        if (button != null)
+       
+        if (context.phase ==InputActionPhase.Started && button != null)
         {
             StopCoroutine(button);
         }
+    }
+
+    public void OnButton ()
+    {
+        //if (button != null)
+        //{
+        //    StopCoroutine(button);
+        //}
 
         button = StartCoroutine(MovePlayer());
     }
@@ -46,7 +56,7 @@ public class Buttons : MonoBehaviour
             timer += Time.deltaTime;
             progress = mover.Evaluate(timer / duration);
 
-            transform.position = Vector2.Lerp(startPos, endPos, progress);
+            player.transform.position = Vector2.Lerp(startPos, endPos, progress);
 
             yield return null;
         }

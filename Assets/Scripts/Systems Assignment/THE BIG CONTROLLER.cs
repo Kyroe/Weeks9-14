@@ -30,24 +30,24 @@ public class THEBIGCONTROLLER : MonoBehaviour
         SpriteRenderer redButton = button4.GetComponent<SpriteRenderer>();
         PlayerMove mPlayer = player.GetComponent<PlayerMove>();
 
-        if (greenButton.bounds.Contains(mainPlayer.transform.position))
+        if (greenButton.bounds.Contains(mainPlayer.transform.position) && button1.activeInHierarchy)
         {
             EventA.Invoke();
            // mPlayer.enabled = false;
 
         }
 
-        if (yellowButton.bounds.Contains(mainPlayer.transform.position))
+        if (yellowButton.bounds.Contains(mainPlayer.transform.position) && button2.activeInHierarchy)
         {
             EventB.Invoke();
         }
 
-        if (blueButton.bounds.Contains(mainPlayer.transform.position))
+        if (blueButton.bounds.Contains(mainPlayer.transform.position) && button3.activeInHierarchy)
         {
             EventC.Invoke();
         }
 
-        if (redButton.bounds.Contains(mainPlayer.transform.position))
+        if (redButton.bounds.Contains(mainPlayer.transform.position) && button4.activeInHierarchy)
         {
             EventD.Invoke();
         }
