@@ -486,7 +486,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   startPos: {x: 6.66, y: 1}
   endPos: {x: 6.66, y: -1}
-  duration: 1
+  duration: 0.4
 --- !u!1 &387156405
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,9 +616,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  startPos: {x: 0, y: 0}
-  endPos: {x: 0, y: 0}
-  duration: 0
+  startPos: {x: -6.66, y: -1}
+  endPos: {x: -6.66, y: 0.95}
+  duration: 0.4
 --- !u!1 &748942740
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,9 +748,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  startPos: {x: 0, y: 0}
-  endPos: {x: 0, y: 0}
-  duration: 0
+  startPos: {x: 5, y: -1.96}
+  endPos: {x: -5, y: -1.96}
+  duration: 2
 --- !u!1 &930836960
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,12 +854,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 748942743}
+        m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
+        m_MethodName: OnButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   EventD:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 930836961}
         m_TargetAssemblyTypeName: THEBIGCONTROLLER, Assembly-CSharp
         m_MethodName: Red
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 387156408}
+        m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
+        m_MethodName: OnButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
