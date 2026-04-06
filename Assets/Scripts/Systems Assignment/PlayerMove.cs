@@ -5,7 +5,10 @@ public class PlayerMove : MonoBehaviour
 {
     Vector2 move;
     public float speed = 5;
-    Buttons button;
+    public Buttons button1;
+    public Buttons button2;
+    public Buttons button3;
+    public Buttons button4;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,8 +30,13 @@ public class PlayerMove : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started)
         {
-            button.StopButton();
-            
+            button1.StopButton();
+            button2.StopButton();
+            button3.StopButton();
+            button4.StopButton();
+
+
+
         }
     }
 }

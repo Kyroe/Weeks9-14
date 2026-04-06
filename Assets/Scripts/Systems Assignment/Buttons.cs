@@ -25,9 +25,12 @@ public class Buttons : MonoBehaviour
 
     public void StopButton()
     {
+        PlayerMove mPlayer = player.GetComponent<PlayerMove>();
+
         if (button != null)
         {
             StopCoroutine(button);
+            mPlayer.enabled = true;
         }
     }
 

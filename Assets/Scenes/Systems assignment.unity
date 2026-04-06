@@ -355,6 +355,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
   speed: 5
+  button1: {fileID: 1701681252}
+  button2: {fileID: 383310306}
+  button3: {fileID: 748942743}
+  button4: {fileID: 387156408}
 --- !u!1 &383310303
 GameObject:
   m_ObjectHideFlags: 0
