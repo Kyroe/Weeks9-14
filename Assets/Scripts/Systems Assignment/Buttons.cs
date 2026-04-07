@@ -23,6 +23,7 @@ public class Buttons : MonoBehaviour
         
     }
 
+    //calls player move script and enables it when coroutine ends
     public void StopButton()
     {
         PlayerMove mPlayer = player.GetComponent<PlayerMove>();
@@ -34,17 +35,22 @@ public class Buttons : MonoBehaviour
         }
     }
 
+    //mapped to unity event
+    //invoked when player triggers contains.bounds
     public void OnButton ()
     {
         button = StartCoroutine(MovePlayer());
     }
 
+    //coroutine that moves player from one button to the other
     public IEnumerator MovePlayer()
     {
         float progress = 0;
         float timer = 0;
         PlayerMove mPlayer = player.GetComponent<PlayerMove>();
 
+        //uses lerp to move player from one button to the other
+        //disables the player move script so that players can move the duck while the lerp is ongoing
         while (timer < duration)
         {
             mPlayer.enabled = false;
@@ -58,5 +64,6 @@ public class Buttons : MonoBehaviour
         }
 
         mPlayer.enabled = true;
+        //reenables player move script once the lerp ends
     }
 }

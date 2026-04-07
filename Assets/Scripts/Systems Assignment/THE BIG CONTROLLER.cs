@@ -14,7 +14,9 @@ public class THEBIGCONTROLLER : MonoBehaviour
     public UnityEvent EventC;
     public UnityEvent EventD;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //The big controller controls unity events
+    //tracks if the player is on the button and invokes the unity event 
+    
     void Start()
     {
         
@@ -23,17 +25,19 @@ public class THEBIGCONTROLLER : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //grabs the sprite renderers for the buttons 
+        
         SpriteRenderer mainPlayer = player.GetComponent<SpriteRenderer>();
         SpriteRenderer greenButton = button1.GetComponent<SpriteRenderer>();
         SpriteRenderer yellowButton = button2.GetComponent<SpriteRenderer>();
         SpriteRenderer blueButton = button3.GetComponent<SpriteRenderer>();
         SpriteRenderer redButton = button4.GetComponent<SpriteRenderer>();
-        PlayerMove mPlayer = player.GetComponent<PlayerMove>();
-
+        
+        //depending on the colour of the button, a different unity event will be invoked
+        //will invoke if the player is within bounds and the button is active
         if (greenButton.bounds.Contains(mainPlayer.transform.position) && button1.activeInHierarchy)
         {
             EventA.Invoke();
-           // mPlayer.enabled = false;
 
         }
 
@@ -53,6 +57,7 @@ public class THEBIGCONTROLLER : MonoBehaviour
         }
     }
 
+    //a different method activated and deactivates the button game object 
     public void Green()
     {
         Debug.Log("Green");
