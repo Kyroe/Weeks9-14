@@ -45,7 +45,7 @@ public class LocalMultiplayerManager : MonoBehaviour
                 //go to the next interatuion of the log so it doens't attack itself
                 continue;
             }
-
+            
             float distanceToPlayer = Vector3.Distance(attackingPlayer.transform.position, exsitingPlayers[i].transform.position);
             LocalMultiplayer newPlayerGameObject = exsitingPlayers[i].GetComponent<LocalMultiplayer>();
 
