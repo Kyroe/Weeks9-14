@@ -49,7 +49,7 @@ public class LocalMultiplayerManager : MonoBehaviour
             float distanceToPlayer = Vector3.Distance(attackingPlayer.transform.position, exsitingPlayers[i].transform.position);
             LocalMultiplayer newPlayerGameObject = exsitingPlayers[i].GetComponent<LocalMultiplayer>();
 
-            if (distanceToPlayer < 1.5)
+            if (distanceToPlayer < 1.5 && newPlayerGameObject.isDead == false)
             {
                 shake.GenerateImpulse();
                 newPlayerGameObject.health -= 1;

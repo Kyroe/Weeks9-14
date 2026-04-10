@@ -27,7 +27,9 @@ public class LocalMultiplayer : MonoBehaviour
 
         if(isDead)
         {
-            gameObject.SetActive(false);
+            SpriteRenderer playerSprite = gameObject.GetComponent<SpriteRenderer>();
+
+            playerSprite.color = Color.black;
         }
 
 
@@ -40,7 +42,7 @@ public class LocalMultiplayer : MonoBehaviour
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (context.performed && gameObject.activeInHierarchy) 
+        if (context.performed && isDead == false) 
         {
             PlayerInput playerInput = gameObject.GetComponent<PlayerInput>();
             manager.TryAttack(playerInput);
