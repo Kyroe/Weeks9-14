@@ -27,6 +27,7 @@ public class LocalMultiplayerManager : MonoBehaviour
         exsitingPlayers.Add(player);
 
         SpriteRenderer newPlayerRenderer = player.GetComponent<SpriteRenderer>();
+       // GameObject newPlayerGameObject = player.GetComponent<GameObject>();
 
         newPlayerRenderer.sprite = possiblePlayerVisuals[exsitingPlayers.Count];
 
@@ -46,10 +47,12 @@ public class LocalMultiplayerManager : MonoBehaviour
             }
 
             float distanceToPlayer = Vector3.Distance(attackingPlayer.transform.position, exsitingPlayers[i].transform.position);
+            LocalMultiplayer newPlayerGameObject = exsitingPlayers[i].GetComponent<LocalMultiplayer>();
 
             if (distanceToPlayer < 1.5)
             {
-                shake.GenerateImpulse(); 
+                shake.GenerateImpulse();
+                newPlayerGameObject.health -= 1;
                 Debug.Log("ATTACK");
             }
         }

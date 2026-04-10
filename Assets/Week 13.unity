@@ -613,7 +613,7 @@ MonoBehaviour:
   - {fileID: -1048973536, guid: 529af4bdebfb57844ac40648c60dbc05, type: 3}
   - {fileID: -993620502, guid: 529af4bdebfb57844ac40648c60dbc05, type: 3}
   exsitingPlayers: []
-  shake: {fileID: 0}
+  shake: {fileID: 856138635}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
